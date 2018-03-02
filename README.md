@@ -1,4 +1,5 @@
 require 'convert'
+string = 'aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1qUTdWR3M1a3FkWQ'
 
 # Run default converters. Pass :converters => [:auto_link, :decode]
 Convert.run('string')

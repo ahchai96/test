@@ -1,75 +1,120 @@
-# Coding Challenges 1
-## 1. Modal Dialog
-[https://codepen.io/cylim/pen/bajLVM](https://codepen.io/cylim/pen/bajLVM)
+require 'convert'
 
-### What is the challenge objective?
-This challenge has two objectives:
-1. Make the form  functional;
-2. Add styling to the modal dialog to make it responsive and suitable for different screen sizes.
+# Run default converters. Pass :converters => [:auto_link, :decode]
+Convert.run('string')
 
-### What should the form do?
+# Convert with Nokogiri, used by 'run'
+Convert.scan('HTML string')
 
-The Normal Form contains:
-1. **Title TextField**: The title of the modal dialog;
-2. **Description TextField**: The content of the modal dialog;
-3. **Type dropdown list**: Allow user to choose different modal dialog format and present it later.
+# URL to HTML link
+Convert.auto_link('https://crowdfundhq.com')
 
-|  type   | description |
-|  :----:   |  :----          |
-|  Alert |  To notify user what is happened  |
-|  Prompt   |  Request user to input something  |
-|  Confirm  |  Inform user about the action going to perform, ask for user permission  |
-|  Custom   |  User can custom the content and the response using script   |
+# Embed dailymotion videos (https://dailymotion.com)
+Convert.dailymotion('string')
 
-The Custom Form contains following extra functionalities:
-1. **HTML Textarea**: User can input what they wanted to render in the dialog;
-2. **OK check button**: If it is checked, let user to customize the execuble script when someone press *OK* in the dialog;
-3. **Cancel check button**: If it is checked, let user to customize the execuble script when someone press *Cancel* in the dialog;
-4. **OK Field**: User can write script which will be excute when someone press the *OK* button in the dialog;
-5. **Cancel Field**: User can write script which will be excute when someone press the *Cancel* button in the dialog;
+# Decode HTML, opposite of below
+Convert.decode('string')
 
-### Are there any restrictions?
-1. Do not use any JavaScript libraries. Use only vanilla JavaScript;
-2. Do not use any globals;
-3. Do not change the provided HTML code.
+# Encode HTML with HTMLEntities
+Convert.encode('string')
 
-### What should the end result look like?
-Here is a screen recording of an unstyled version of the challenge(decode to watch): aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1qUTdWR3M1a3FkWQ==
+# Remove embedded videos from emails
+Convert.email_escape('string')
 
-### How long will it take me to complete the challenge?
-Anywhere between 30 minutes to 4 hours, depending on your skill level. If it takes you longer, thatâ€™s totally fine.
+# Embed facebook video (https://www.facebook.com)
+Convert.facebook_embed('string')
 
-### What should I do to start coding?
-Create an account on codepen.io. Fork the existing pen we have above and start coding! 
+# Embed flickr content (https://flickr.com)
+Convert.flickr('string')
 
-## 2. Infinite Form
-[https://codepen.io/cylim/pen/eyEaNP](https://codepen.io/cylim/pen/eyEaNP)
+# Embed a Github gist (https://gist.github.com)
+Convert.gist('string')
 
-### What is the challenge objective?
-This challenge has two objectives:
-1. Make the form buttons functional
-2. Add styling to the modal dialog to make it look appealing.
+# Embed classic google maps (https://maps.google.com)
+Convert.google_maps('string')
 
-### What should the button do?
-In the provided HTML there are three buttons:
-1. New Line: This creates a new form line at the end of the same level as the line that contains the clicked button;
-2. New Nested Line: This creates a nested line inside the line that contains the clicked button;
-3. New Input: This adds a new input at the end of all inputs included in the line that contains the clicked button.
+# Twitter or Facebook hastag to HTML link
+Convert.hashtag('#flat')
 
-### Are there any restrictions?
-1. Do not use any JavaScript libraries. Use only vanilla JavaScript;
-2. Do not use any globals;
-3. Do not change the provided HTML code;
-4. Do not write any HTML in your JavaScript code.
+# Escape HTML
+Convert.escape_html('html')
 
-### What should the end result look like?
-Here is a screen recording of an unstyled version of the challenge(decode to watch): aHR0cHM6Ly95b3V0dS5iZS9obU16M1BhV2tJUQ==
+# Unescape HTML
+Convert.unescape_html('string')
 
-### How long will it take me to complete the challenge?
-Anywhere between 30 minutes to 4 hours, depending on your skill level. If it takes you longer, thatâ€™s totally fine.
+# Embed iframe
+Convert.iframe_embed('https://crowdfundhq.com/campaigns/flatty.embed')
 
-### What should I do to start coding?
-Create an account on codepen.io. Fork the existing pen we have above and start coding! 
+# Convert
+Convert.image_tag('https://crowdfundhq.com/logo.png')
 
-## Submission
-Share the codepen link with us, we will have someone review your code!
+# URL to Instagram embedded content
+Convert.instagram('string')
+
+# String to markdown (https://kramdown.gettalong.org)
+Convert.kramdown('string')
+
+# Embed live leak videos
+Convert.liveleak('string')
+
+# Embed markdown with Redcarpet
+Convert.redcarpet('string')
+
+# Sanitize HTML with the Sanitize gem
+Convert.sanitize('HTML string')
+
+# Sanitize config: :custom, :full, :linebreaks, :simple, :restricted, :basic, :relaxed
+# You can add your own config by adding a file like the ones here:
+# https://github.com/fugroup/convert/tree/master/lib/sanitizers
+Convert.sanitize('HTML string', :config => :custom)
+
+# Strip parameters from URL
+Convert.strip_params('URL string')
+
+# Same as above, a few other options
+Convert.markdown('string')
+
+# Embed metacafe content (https://www.metacafe.com)
+Convert.metacafe('string')
+
+# New lines to HTML br tags
+Convert.simple_format('string')
+
+# Embed Soundcloud music (https://soundcloud.com)
+Convert.soundcloud('string')
+
+# Embed TED videos (https://www.ted.com)
+Convert.ted('string')
+
+# Twitter embed tweet (https://twitter.com)
+Convert.twitter('string')
+
+# Embed Youtube or Vimeo videos from URL
+Convert.video_embed('string')
+
+# Embed Vimeo video, full (https://vimeo.com)
+Convert.vimeo('string')
+
+# Embed Vimeo video, simple
+Convert.vimeo_embed('string')
+
+# Embed worldstar content
+Convert.worldstar('string')
+
+# Embed Youtube videos, full (https://youtube.com)
+Convert.youtube('string')
+
+# Embed Youtube videos, simple
+Convert.youtube_embed('string')
+
+# Embed Youtube image
+Convert.youtube_image('string')
+
+# Embed Youtube JS API
+Convert.youtube_js_api('string')
+
+# Convert Chinese and other non-standard characters to IDN
+Convert.to_ascii('string')
+
+# Reverse IDN conversion
+Convert.to_unicode('string')
